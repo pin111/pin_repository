@@ -10,7 +10,7 @@ def Getbarrage(bvid):
         "Content-Type": "text/html; charset=utf-8",
     }
     
-    #爬取视频弹幕链接
+    #爬取视频弹幕地址
     
     analyticalpage = requests.get(url = url,headers = headers)
     analyticalpage.encoding = analyticalpage.apparent_encoding
