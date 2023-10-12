@@ -1,0 +1,102 @@
+/* pages/page3/page3.wxss */
+page{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.background{
+  width: 100%;
+  height: 100%; 
+}
+.c0{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.c1{
+  height: 50px;
+  width: 50px;
+  margin-top: 3px;
+}
+.c2{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.c3{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.c4{
+  display: flex;
+  flex-direction: column;
+}
+.c5{
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.c6{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+/**index.wxss**/
+/* 外面的按钮 */
+.btn{
+  width: 50px;
+  height: 40px;
+  border: 1px solid rgb(129, 123, 123);
+  box-sizing: border-box;
+  border-radius: 100px;
+  background-color:rgb(129, 123, 123);
+}
+ 
+/* 遮罩层 */
+.mask{
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background:#000;
+    z-index:9000;
+    opacity:0.5;
+}
+  
+/* 弹出层 */
+.modalDlg{
+    width:90%;
+    height:90%;
+    position:fixed;
+    top:50px;
+    left:0;
+    right:0;
+    z-index:9999;
+    margin:0 auto;
+    background-color:#fff;
+    border-radius:5px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+ 
+/* 弹出层里面的图片 */
+ 
+/* 弹出层里面的按钮 */
+.ok{
+  width:80px;
+  height:35px;
+  background:#233db1;
+  line-height:35px;
+  text-align:center;
+  color:#fff;
+  font-size:15px;
+  margin:10px auto;
+  border-radius:100px;
+}
+ 
+/* 弹出层里面的文字 */
+.wx-divider { height: 3rpx; background-color: #3f3f61; margin: 15rpx 0; } 

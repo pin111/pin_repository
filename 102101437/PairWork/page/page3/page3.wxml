@@ -1,0 +1,96 @@
+<!--pages/page3/page3.wxml-->
+<view class="background" style="position:relative">
+  <image style="width: 100%;height: 100%; background-color: #eeeeee;" src="/image/bg1.png"></image>
+  <view style="position:absolute;top:0;left:0;width: 100%">
+    <view style="flex-direction: row;">
+      <image src="/image/bendi.png" style="width: 40px;height: 40px;font-weight: 800;"></image>
+      <text style="font-size: 20px;font-family: cursive;font-weight: 800;">本地对战</text>
+    </view>
+    <view class="c2" style="font-family: cursive;font-size: 17px;font-weight: 800;">当前局数为:{{game_num}}/{{gamenum}}</view>
+    <view class="c2" style="font-family: cursive;font-size: 17px;font-weight: 800;">当前轮数为:{{round_num}}/3</view>
+    <text class="c2" style="font-family: cursive;font-size: 17px;font-weight: 800;">当前倍率为:{{magnification}}（初始倍率为1）</text>
+    <view class="wx-divider"></view>
+    <text style="font-family: cursive;font-size: 17px;font-weight: 800;">投掷区域</text>
+    <view class="c0">
+      <block wx:for="{{messages}}" wx:key="index">
+        <image src="/image/{{item}}.jpg" class="c1" bind:tap="clickMe" data-nid="{{index}}" style="{{states[index] ? '' : 'border: 5px solid red;'}}"></image>
+      </block>
+    </view>
+    <text style="font-family: cursive;font-size: 17px;font-weight: 800;">当前得分：{{score}}</text>
+    <view class="wx-divider"></view>
+    <text style="font-family: cursive;font-size: 17px;font-weight: 800;">选定区域</text>
+    <view wx:if="{{states[0] === true && states[1] === true && states[2] === true && states[3] === true&& states[4] === true}}">
+      <text class="c2" style="font-family: cursive;font-size: 20px;font-weight: 800;">\n暂无选定骰子</text>
+      <text>\n</text>
+    </view>
+    <view class="c0">
+      <block wx:for="{{messages}}" wx:key="index" wx:if="{{!states[index]}}">
+        <image src="/image/{{item}}.jpg" class="c1" bind:tap="clickMe" data-nid="{{index}}" style="{{states[index] ? '' : 'border: 5px solid red;'}}"></image>
+      </block>
+    </view>
+    <view class="wx-divider"></view>
+    <text style="font-family: cursive;font-size: 17px;font-weight: 800;">操作界面</text>
+    <text class="c2" style="font-family: cursive;font-size: 17px;font-weight: 800;">倍率选择</text>    
+    <view class="c0">
+      <block wx:for="{{rates}}" wx:key = "index">
+        <button class="btn" bind:tap = "magnification"  data-nid="{{index}}" style="font-family: cursive;font-size: 17px;font-weight: 800;margin-right: 10px;margin-left: 10px;background-color: rgb(168, 168, 16);">{{item}}</button>
+      </block>
+    </view>
+    <text>\n</text>
+    <view class="c0">
+      <button class = "btn" bind:tap="rockDice" style="font-family: cursive;font-size: 17px;font-weight: 800;margin-right: 40px;margin-left: 30px;background-color: rgb(168, 168, 16);">投掷</button>
+      <button  class = "btn" bind:tap="finishlock" style="font-family: cursive;font-size: 17px;font-weight: 800;margin-right: 30px;background-color: rgb(168, 168, 16);">完成锁定</button>
+    </view>
+    <text class="c2" wx:if="{{flag === 0 && !flag1}}" style="font-family: cursive;font-size: 17px;font-weight: 800;">
+      玩家{{player_num+1}}请投掷!\n
+    </text>
+    <text class="c2" wx:if="{{flag === 1 && !flag1}}" style="font-family: cursive;font-size: 17px;font-weight: 800;">
+      玩家{{player_num+1}}请锁定骰子（点击你想要锁定的骰子就可完成锁定，选定完成后点击完成锁定）！
+    </text>
+    <text class="c2" wx:if="{{flag1}}" style="font-family: cursive;font-size: 17px;font-weight: 800;">
+      玩家{{player_num+1}}请选择倍率！\n
+    </text>
+    <view class="wx-divider"></view>
+    <view class="c3">
+      <view wx:for="{{chip}}" wx:key = "index" class = "c4">
+        <image src="/image/p{{index+1}}.jpg" class="c1"></image>
+        <text style="font-family: cursive;font-size: 17px;font-weight: 800;">玩家{{index+1}}\n</text>
+        <text style="font-family: cursive;font-size: 17px;font-weight: 800;">筹码:{{item}}\n</text>
+        <text style="font-family: cursive;font-size: 17px;font-weight: 800;">排名:{{ranks[index]}}</text>
+      </view>
+    </view>
+  </view>
+<!-- 遮罩层 -->
+  <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <!-- 弹出层 -->
+  <view class="modalDlg" wx:if="{{showModal}}">
+  <!-- 二维码或其他图片 -->
+    <view>
+      <block wx:for="{{dices}}" wx:key="index" style="display: flex; flex-direction: row;">
+        <text style="font-family: cursive;font-size: 17px;font-weight: 800;">玩家{{index+1}}最终骰子点数:\n</text>
+        <block wx:for="{{item}}" wx:key="index" style="display: flex; flex-direction: column;">
+          <image src="/image/{{item}}.jpg" class="c1"></image>
+        </block>
+        <text style="font-family: cursive;font-size: 17px;font-weight: 800;">\n玩家{{index+1}}的得分为:{{scores[index]}}\n</text>
+      </block>
+    </view>
+      <view bind:tap="ok" class="ok" wx:if="{{game_num !== 0}}" style="font-family: cursive;font-size: 17px;font-weight: 800;">下一局</view>
+      <view bind:tap="gameover" class="ok" wx:if="{{game_num === 0}}" style="font-family: cursive;font-size: 17px;font-weight: 800;">结束游戏</view>
+  </view>
+
+  <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal1}}"></view>
+  <!-- 弹出层 -->
+  <view class="modalDlg" wx:if="{{showModal1}}">
+  <!-- 二维码或其他图片 -->
+    <text style="font-size: 30px;font-family: cursive;font-weight: 800;">游戏结束!!!</text>
+    <view wx:for="{{ranks}}" wx:key="index" class="c3" style="margin-top: 10px;">
+      <image src="/image/p{{index+1}}.jpg" style="width:40px;height: 40px;"></image>
+      <view class="c4">
+        <text style="font-family: cursive;font-size: 17px;font-weight: 800;">玩家{{index+1}}的最终排名为:{{item}}</text>
+        <text style="font-family: cursive;font-size: 17px;font-weight: 800;">玩家{{index+1}}的最终筹码为:{{chip[index]}}</text>
+      </view>
+    </view>
+      <view bind:tap="turnnewgame" class="ok" style="font-family: cursive;font-size: 17px;font-weight: 800;">新游戏</view>
+      <view bind:tap="turn" class="ok" style="font-family: cursive;font-size: 17px;font-weight: 800;">返回主页</view>
+  </view>
+</view>
