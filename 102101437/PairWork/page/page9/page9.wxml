@@ -1,0 +1,18 @@
+<!--pages/page9/page9.wxml-->
+<view class="background" style="position:relative">
+  <image style=" height:100%;width: 100%; background-color: #eeeeee;" src="/image/bg2.png"></image>
+  <view style="position:absolute;top:0;left:0;width: 100%;display: flex;flex-direction: column;">
+    <view style="flex-direction: row;">
+      <image src="/image/jiesuan.png" style="width: 40px;height: 40px;font-weight: 800;"></image>
+      <text style="font-size: 20px;color: green;font-weight: 800;">结算规则</text>
+    </view>
+    <text style="font-size: 25px;color:black;width: 80%;margin-left: 40px;font-weight: 700;font-family: cursive;margin-top: 50px;">分数最高的玩家从所有其它玩家手里赢得（二人分差的绝对值）*（总倍率）的筹码。
+    N局游戏后，筹码最多的玩家获胜。
+    如若中途有玩家筹码小于等于0，则该玩家被击飞，游戏直接结束（都没了的意思哦）。
+    </text>
+    <view style = "display: flex; flex-direction: row; margin-left: 30px;margin-right: 50px;margin-top: 215px;">
+      <button  style="color: black;margin-right: 50px;background-color: rgb(167, 202, 245);" bind:tap="turnp8">上一页</button>
+      <button  style="color: black;background-color: rgb(167, 202, 245);" bind:tap="turnp10" >下一页</button>
+    </view>
+  </view>
+</view>
