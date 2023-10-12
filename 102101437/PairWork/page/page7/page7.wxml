@@ -1,0 +1,12 @@
+<!--pages/page7/page7.wxml-->
+<view class="background" style="position:relative">
+  <image style=" height:100%;width: 100%; background-color: #eeeeee;" src="/image/bg4.png"></image>
+  <view style="position:absolute;top:0;left:0;width: 100%;display: flex;flex-direction: column;height: 100%;">
+    <text style="font-size: 30px;margin-left: 30px;">
+    开发中！
+    敬请期待！
+    </text>
+    <button plain="true" style="color: rgb(232, 232, 241);margin-top: 400px;" bind:tap="turnp2">返回</button>>
+  </view>
+</view>
+
