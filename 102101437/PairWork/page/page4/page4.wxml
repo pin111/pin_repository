@@ -1,0 +1,26 @@
+<!--pages/page4/page4.wxml-->
+<view class="background" style="position:relative">
+  <image style=" height:100%;width: 100%; background-color: #eeeeee;" src="/image/bg1.png"></image>
+</view>
+<view style="position:absolute;top:0;left:0;width: 100%;display: flex;flex-direction: column;">
+  <view style="flex-direction: row;">
+      <image src="/image/bendi.png" style="width: 50px;height: 50px;font-weight: 800;"></image>
+      <text style="font-size: 25px;font-family: cursive;font-weight: 800;">本地对战</text>
+    </view>
+    <text>\n\n\n\n</text>
+    <view class="c0">
+      <view class="input-container">
+        <input class="border-input" placeholder="请输入玩家人数" placeholder-style="color:#000;font-family:楷体;font-size:17px;" bindinput="inputPlayerNum"></input>
+      </view>
+      <text>\n\n</text>
+      <view class="input-container">
+        <input class="border-input" placeholder="请输入玩家初始筹码" placeholder-style="color:#000;font-family:楷体;font-size:17px;" bindinput="inputPlayerChip" ></input>
+      </view>
+      <text>\n\n</text>
+      <view class="input-container">
+        <input class="border-input" placeholder="请输入游戏局数" placeholder-style="color:#000;font-family:楷体;font-size:17px;" bindinput="inputGameNum"></input>
+      </view>
+      <text>\n\n</text>
+      <button bind:tap="pageTurns" style="font-family: cursive;font-size: 20px;background-color: yellow;">开始游戏</button>
+    </view>
+  </view>
