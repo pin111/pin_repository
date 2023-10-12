@@ -1,0 +1,7 @@
+<!--pages/page11/page11.wxml-->
+<view class="background" style="position:relative">
+  <image style=" height:100%;width: 100%; background-color: #eeeeee;" src="/image/bg5.png"></image>
+  <view style="position:absolute;top:0;left:0;width: 100%;display: flex;flex-direction: column;height: 100%;">
+  <button plain="true" style="color: black;margin-top: 500px;" bind:tap="turnp2">返回</button>>
+</view>
+</view>
