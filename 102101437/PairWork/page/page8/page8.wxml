@@ -1,0 +1,19 @@
+<!--pages/page8/page8.wxml-->
+<view class="background" style="position:relative">
+  <image style=" height:100%;width: 100%; background-color: #eeeeee;" src="/image/bg2.png"></image>
+<view style="position:absolute;top:0;left:0;width: 100%;display: flex;flex-direction: column;">
+<view style="flex-direction: row;">
+<image src="/image/youxiguize.png" style="width: 40px;height: 40px;font-weight: 800;"></image>
+<text style="font-size: 20px;color: rgb(126, 98, 98);font-weight: 800;">游戏规则</text>
+</view>
+<text style="font-size: 20px;color:black;width: 80%;margin-left: 40px;font-weight: 700;font-family: cursive;">\n\n进入游戏，选择游戏模式后，设置游戏局数和玩家个人筹码数。
+每一局游戏内有三轮投掷机会，玩家一人一次轮流投掷骰子，每个玩家有5个骰子。
+前两次投掷骰子之后可以选择锁定0~5个骰子，锁定的骰子位于选定区域不再改变。
+前两轮每轮投掷结束并在所有玩家锁定骰子后，每位玩家可以选择增加倍率：0，1，2，3。选择完成后进入下一轮。
+第三轮投掷结束后，所有玩家的全部骰子自动锁定并进行计分（得分为五个骰子的点数总和+奖励分），得出最终结果，筹码划分。</text>
+<view style = "display: flex; flex-direction: row; margin-left: 30px;margin-right: 40px;margin-top:90px;">
+  <button  style="color: black;margin-right: 40px;background-color: rgb(167, 202, 245);" bind:tap="turnp2">返回主页</button>
+  <button  style="color: black;background-color: rgb(167, 202, 245);" bind:tap="turnp9">下一页</button>
+</view>
+</view>
+</view>
